@@ -1,0 +1,129 @@
+/*--slick_slider--*/
+.slick-slider {
+    position: relative;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.slick-slide:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-track {
+    position: relative;
+    display: block;
+}
+
+    .slick-track:before, .slick-track:after {
+        display: table;
+        content: '';
+    }
+
+    .slick-track:after {
+        clear: both;
+    }
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    float: left;
+    display: block;
+    min-height: 120px;
+    padding: 20px;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
+    color:#fff;
+    cursor: pointer;
+}
+    .slick-arrow.slick-prev {
+        left: 20px
+    }
+    .slick-arrow.slick-next {
+        right: 20px
+    }
+        .slick-arrow.slick-next.slick-disabled,
+        .slick-arrow.slick-prev.slick-disabled {
+            cursor: default;
+        }
+
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+
+.slick-dots {
+    display: block;
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    cursor: pointer;
+    margin: 0px 5px;
+    margin-bottom: 5px;
+}
+
+    .slick-dots li button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        color: transparent;
+        border: 0px solid transparent;
+        outline: none;
+    }
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-dots li button:hover, .slick-dots li button:focus {
+    outline: none;
+}
+/*--slick_slider_end--*/

